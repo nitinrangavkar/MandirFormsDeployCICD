@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build:
-
+    environment: ENV-UAT-MandirForms
     runs-on: ubuntu-latest
 
     steps:
