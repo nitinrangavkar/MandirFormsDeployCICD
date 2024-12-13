@@ -38,8 +38,8 @@ jobs:
     # - name: Run test suite
     #   run: composer run-script test
 
-    - name: Build
-      run: npm run build # The build command of your project
+    #- name: Build
+    #  run: npm run build # The build command of your project
 
     - name: Push
       uses: s0/git-publish-subdir-action@develop
