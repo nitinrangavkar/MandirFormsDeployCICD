@@ -78,4 +78,4 @@ jobs:
         remote-path: /git_cicd
 
         # Port for SFTP access to server
-        remote-port: 21
+        remote-port: 221
