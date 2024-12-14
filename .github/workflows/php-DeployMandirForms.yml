@@ -49,3 +49,33 @@ jobs:
     #    FOLDER: git_cicd # The directory where your assets are generated
     #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
     #    MESSAGE: "Build: ({sha}) {msg}" # The commit message
+
+    # Checks-out your repository under $GITHUB_WORKSPACE, 
+    # so your job can access it
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+
+        # Fetch all history for all tags and branches
+        fetch-depth: 0
+
+        # Checkout a specific branch
+        ref: main
+
+      # This is a composite GitHub Action (Linux runner) 
+      # for deploying repository content to remote server
+    - name: SFTP-Deploy-Action
+      uses: milanmk/actions-file-deployer@master
+      with:
+        remote-protocol: sftp
+
+        # Credentials for SFTP access to server using GitHub secrets
+        remote-host: 'ftp://62.72.28.94'
+        remote-user: 'u847347078'
+        remote-password: '=;3Y[Amc2+36'
+
+        # Path for specific folder on server for files deployment
+        remote-path: /git_cicd
+
+        # Port for SFTP access to server
+        remote-port: 21
