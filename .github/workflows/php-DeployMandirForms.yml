@@ -52,30 +52,51 @@ jobs:
 
     # Checks-out your repository under $GITHUB_WORKSPACE, 
     # so your job can access it
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
+    #- name: Checkout
+    #  uses: actions/checkout@v3
+    #  with:
 
-        # Fetch all history for all tags and branches
-        fetch-depth: 0
+     #   # Fetch all history for all tags and branches
+     #   fetch-depth: 0
 
-        # Checkout a specific branch
-        ref: main
+      #  # Checkout a specific branch
+      #  ref: main
 
       # This is a composite GitHub Action (Linux runner) 
       # for deploying repository content to remote server
-    - name: SFTP-Deploy-Action
-      uses: milanmk/actions-file-deployer@master
-      with:
-        remote-protocol: sftp
+    #- name: SFTP-Deploy-Action
+    #  uses: milanmk/actions-file-deployer@master
+    #  with:
+    #    remote-protocol: sftp
 
         # Credentials for SFTP access to server using GitHub secrets
-        remote-host: 'ftp://62.72.28.94'
-        remote-user: 'u847347078'
-        remote-password: '=;3Y[Amc2+36'
+       # remote-host: 'ftp://62.72.28.94'
+       # remote-user: 'u847347078'
+       # remote-password: '=;3Y[Amc2+36'
 
         # Path for specific folder on server for files deployment
-        remote-path: /git_cicd
+       # remote-path: /git_cicd
+
+       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+          
+    - name: SFTP Deploy
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+      with:
+        username: u847347078
+        server: ftp://62.72.28.94
+        port: 22 # default is 22
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+        
+        # will put all file under this path
+        local_path: ./* # default is ./*
+        # files will copy to under remote_path
+        remote_path: /var/www
+        
+        # sftp args
+        args: '-o ConnectTimeout=5'
+
 
         # Port for SFTP access to server
         remote-port: 221
