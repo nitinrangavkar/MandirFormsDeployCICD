@@ -85,14 +85,14 @@ jobs:
       with:
         username: u847347078
         server: ftp.mediumslateblue-hedgehog-527643.hostingersite.com
-        port: 22 # default is 22
+        port: 21 # default is 22
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
         
         # will put all file under this path
         local_path: ./* # default is ./*
         # files will copy to under remote_path
-        remote_path: /public_html/git_cicd
+        remote_path: /home/u847347078/domains/mediumslateblue-hedgehog-527643.hostingersite.com/public_html/git_cicd
         
         # sftp args
         args: '-o ConnectTimeout=5'
