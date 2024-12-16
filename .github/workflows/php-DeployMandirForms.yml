@@ -84,7 +84,7 @@ jobs:
       uses: wlixcc/SFTP-Deploy-Action@v1.2.1
       with:
         username: u847347078.harimandir
-        server: ftp.mediumslateblue-hedgehog-527643.hostingersite.com
+        server: 62.72.28.94
         port: 21 # default is 22
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
