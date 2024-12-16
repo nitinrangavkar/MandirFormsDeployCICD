@@ -83,16 +83,16 @@ jobs:
     - name: SFTP Deploy
       uses: wlixcc/SFTP-Deploy-Action@v1.2.1
       with:
-        username: u847347078
-        server: 62.72.28.94
+        username: 'u847347078'
+        server: '62.72.28.94'
         port: 21 # default is 22
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
         
         # will put all file under this path
-        local_path: ./* # default is ./*
+        local_path: './*' # default is ./*
         # files will copy to under remote_path
-        remote_path: /home/u847347078/domains/mediumslateblue-hedgehog-527643.hostingersite.com/public_html/git_cicd
+        remote_path: '/home/u847347078/domains/mediumslateblue-hedgehog-527643.hostingersite.com/public_html/git_cicd'
         
         # sftp args
         args: '-o ConnectTimeout=5'
