@@ -94,9 +94,9 @@ jobs:
           remote-protocol: sftp
   
           # Credentials for SFTP access to server using GitHub secrets
-          remote-host: '62.72.28.94'
-          remote-user: 'u847347078'
-          remote-password: '=;3Y[Amc2+36'
+          remote-host: ${{ secrets.FTP_Host }}
+          remote-user: ${{ secrets.FTP_Username }}
+          remote-password: ${{ secrets.FTP_Password }}
   
           # Path for specific folder on server for files deployment
           remote-path: '/home/u847347078/domains/mediumslateblue-hedgehog-527643.hostingersite.com/public_html/git_cicd'
