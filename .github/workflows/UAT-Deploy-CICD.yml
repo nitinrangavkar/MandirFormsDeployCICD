@@ -68,7 +68,7 @@ jobs:
           remote-password: ${{ secrets.FTP_Password }}
   
           # Path for specific folder on server for files deployment
-          remote-path: '/home/u847347078/domains/mediumslateblue-hedgehog-527643.hostingersite.com/public_html/git_cicd'
+          remote-path: '/home/u847347078/domains/mediumslateblue-hedgehog-527643.hostingersite.com/public_html/UAT'
   
           # Port for SFTP access to server
           remote-port: 21
