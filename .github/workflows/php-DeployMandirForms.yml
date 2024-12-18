@@ -40,43 +40,7 @@ jobs:
 
     #- name: Build
     #  run: npm run build # The build command of your project
-
-    #- name: Push
-    #  uses: s0/git-publish-subdir-action@develop
-    #  env:
-    #    REPO: self
-    #    BRANCH: main # The branch name where you want to push the assets
-    #    FOLDER: git_cicd # The directory where your assets are generated
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-    #    MESSAGE: "Build: ({sha}) {msg}" # The commit message
-
-    # Checks-out your repository under $GITHUB_WORKSPACE, 
-    # so your job can access it
-    #- name: Checkout
-    #  uses: actions/checkout@v3
-    #  with:
-
-     #   # Fetch all history for all tags and branches
-     #   fetch-depth: 0
-
-      #  # Checkout a specific branch
-      #  ref: main
-
-      # This is a composite GitHub Action (Linux runner) 
-      # for deploying repository content to remote server
-    #- name: SFTP-Deploy-Action
-    #  uses: milanmk/actions-file-deployer@master
-    #  with:
-    #    remote-protocol: sftp
-
-        # Credentials for SFTP access to server using GitHub secrets
-       # remote-host: 'ftp://62.72.28.94'
-       # remote-user: 'u847347078'
-       # remote-password: '=;3Y[Amc2+36'
-
-        # Path for specific folder on server for files deployment
-       # remote-path: /git_cicd
-
+    
        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
        #==============
     #- uses: actions/checkout@v2
@@ -99,32 +63,37 @@ jobs:
     #    args: '-o ConnectTimeout=5'
     #=========================================================
 
+  UAT-CICD-Deploy:
+    #environment: ENV-UAT-MandirForms
+    runs-on: ubuntu-latest
+    steps:
+
     # Checks-out your repository under $GITHUB_WORKSPACE, 
       # so your job can access it
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-
-        # Fetch all history for all tags and branches
-        fetch-depth: 0
-
-        # Checkout a specific branch
-        ref: main
-
-    # This is a composite GitHub Action (Linux runner) 
-    # for deploying repository content to remote server
-    - name: SFTP-Deploy-Action
-      uses: milanmk/actions-file-deployer@master
-      with:
-        remote-protocol: sftp
-
-        # Credentials for SFTP access to server using GitHub secrets
-        remote-host: '62.72.28.94'
-        remote-user: 'u847347078'
-        remote-password: '=;3Y[Amc2+36'
-
-        # Path for specific folder on server for files deployment
-        remote-path: '/home/u847347078/domains/mediumslateblue-hedgehog-527643.hostingersite.com/public_html/git_cicd'
-
-        # Port for SFTP access to server
-        remote-port: 21
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+  
+          # Fetch all history for all tags and branches
+          fetch-depth: 0
+  
+          # Checkout a specific branch
+          ref: main
+  
+      # This is a composite GitHub Action (Linux runner) 
+      # for deploying repository content to remote server
+      - name: SFTP-Deploy-Action
+        uses: milanmk/actions-file-deployer@master
+        with:
+          remote-protocol: sftp
+  
+          # Credentials for SFTP access to server using GitHub secrets
+          remote-host: '62.72.28.94'
+          remote-user: 'u847347078'
+          remote-password: '=;3Y[Amc2+36'
+  
+          # Path for specific folder on server for files deployment
+          remote-path: '/home/u847347078/domains/mediumslateblue-hedgehog-527643.hostingersite.com/public_html/git_cicd'
+  
+          # Port for SFTP access to server
+          remote-port: 21
