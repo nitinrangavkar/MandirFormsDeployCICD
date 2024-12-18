@@ -12,7 +12,7 @@ permissions:
 jobs:
   build:
     name: Build
-    environment: ENV-DEV-MandirForms
+    #environment: ENV-DEV-MandirForms
     runs-on: ubuntu-latest
 
     steps:
