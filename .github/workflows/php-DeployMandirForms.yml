@@ -2,9 +2,9 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "UAT" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "UAT" ]
 
 permissions:
   contents: read
@@ -84,7 +84,7 @@ jobs:
           fetch-depth: 0
   
           # Checkout a specific branch
-          ref: main
+          ref: UAT
   
       # This is a composite GitHub Action (Linux runner) 
       # for deploying repository content to remote server
