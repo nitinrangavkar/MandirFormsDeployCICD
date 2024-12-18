@@ -2,9 +2,9 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ "DEV" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "DEV" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -53,7 +53,7 @@ jobs:
           fetch-depth: 0
   
           # Checkout a specific branch
-          ref: DEV
+          ref: main
   
       # This is a composite GitHub Action (Linux runner) 
       # for deploying repository content to remote server
@@ -68,7 +68,7 @@ jobs:
           remote-password: ${{ secrets.FTP_Password }}
   
           # Path for specific folder on server for files deployment
-          remote-path: ${{ secrets.FTP_REMOTE_PATH }}/dev
+          remote-path: ${{ secrets.FTP_REMOTE_PATH }}/git_cicd
   
           # Port for SFTP access to server
           remote-port: ${{ secrets.FTP_Port }}
