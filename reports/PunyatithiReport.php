@@ -43,7 +43,7 @@ $date_time = date("d-m-Y") . " | " . date("h:i:sa");
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Add New Record</title>
+  <title>Punyatithi Report</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
