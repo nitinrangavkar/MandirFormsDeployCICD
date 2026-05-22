@@ -69,6 +69,8 @@ jobs:
   
           # Path for specific folder on server for files deployment
           remote-path: ${{ secrets.FTP_REMOTE_PATH }}/git_cicd
+
+          local-path: "./"
   
           # Port for SFTP access to server
           remote-port: ${{ secrets.FTP_Port }}
