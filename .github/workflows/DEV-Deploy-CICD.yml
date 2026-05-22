@@ -72,3 +72,6 @@ jobs:
   
           # Port for SFTP access to server
           remote-port: ${{ secrets.FTP_Port }}
+
+      - name: View transfer log
+        run: cat transfer_log.txt
