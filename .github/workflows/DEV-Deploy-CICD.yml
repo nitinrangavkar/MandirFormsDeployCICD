@@ -63,11 +63,15 @@ jobs:
           remote-protocol: sftp
   
           # Credentials for SFTP access to server using GitHub secrets
-          remote-host: ${{ secrets.FTP_Host }}
-          remote-user: ${{ secrets.FTP_Username }}
-          remote-password: ${{ secrets.FTP_Password }}
+          #remote-host: ${{ secrets.FTP_Host }}
+          remote-host: ftp://shriharimandiram.org
+          #remote-user: ${{ secrets.FTP_Username }}
+          remote-user: u847347078
+          #remote-password: ${{ secrets.FTP_Password }}
+          remote-password: =7p/u^gq!pfR+1^Q
           # Port for SFTP access to server
-          remote-port: ${{ secrets.FTP_Port }}
+          #remote-port: ${{ secrets.FTP_Port }}
+          remote-port: 21
 
           local-path: "./admin"
   
