@@ -66,11 +66,10 @@ jobs:
           remote-host: ${{ secrets.FTP_Host }}
           remote-user: ${{ secrets.FTP_Username }}
           remote-password: ${{ secrets.FTP_Password }}
+          # Port for SFTP access to server
+          remote-port: ${{ secrets.FTP_Port }}
 
           local-path: "./admin"
   
           # Path for specific folder on server for files deployment
           remote-path: ${{ secrets.FTP_REMOTE_PATH }}/git_cicd
-  
-          # Port for SFTP access to server
-          remote-port: ${{ secrets.FTP_Port }}
